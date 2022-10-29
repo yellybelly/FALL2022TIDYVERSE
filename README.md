@@ -4,7 +4,7 @@ DATA 607 Fall 2022 Tidyverse collaboration site
 # Sample
 Initial Description and Link: 
 * Demonstrates how to flip ggplot axes
-* https://github.com/acatlin/FALL2022TIDYVERSE/blob/main/ggplot_forcats.rmd
+* [https://github.com/GabrielSantos33/DATA-607-Tidyverse](https://github.com/GabrielSantos33/DATA-607-Tidyverse)
 
 
 Revision/Addition Description and Link:

@@ -66,3 +66,18 @@ ggplot(combined_df, aes(x = per_cat_enrollment, y = in_state_tuition)) +
 ```
 
 *Conclusion: The plot shows that in-state tution increases as the proportion of certain categories (Non-Resident Foreign,  Asian students, Two or More Races) increase. However, as the proportion of American Indians, Black, Hispanic, Total Minority, increases,  the in state tuition decreases. These findings are interesting and worth investigating further.*
+
+Extended by Ayelet Zucker:
+
+```{r}
+tuition_data %>%
+  group_by(type) %>%
+  summarise(mean_ist= mean(in_state_tuition))
+```
+
+```{r}
+diversity_data %>%
+  group_by(category) %>%
+  summarise(mean_E= mean(enrollment))
+```
+

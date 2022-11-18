@@ -192,29 +192,29 @@ dplyr::glimpse(dfRaw)</code></pre>
 ## $ season         &lt;int&gt; 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2~
 ## $ neutral        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0~
 ## $ playoff        &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ team1          &lt;chr&gt; &quot;BOS&quot;, &quot;GSW&quot;, &quot;IND&quot;, &quot;DET&quot;, &quot;MIA&quot;, &quot;ATL&quot;, &quot;MEM&quot;, &quot;BRK&quot;,~
-## $ team2          &lt;chr&gt; &quot;PHI&quot;, &quot;LAL&quot;, &quot;WAS&quot;, &quot;ORL&quot;, &quot;CHI&quot;, &quot;HOU&quot;, &quot;NYK&quot;, &quot;NOP&quot;,~
-## $ elo1_pre       &lt;dbl&gt; 1657.640, 1660.620, 1399.202, 1393.525, 1617.953, 1535.~
-## $ elo2_pre       &lt;dbl&gt; 1582.247, 1442.352, 1440.077, 1366.089, 1447.489, 1351.~
-## $ elo_prob1      &lt;dbl&gt; 0.7329497, 0.8620114, 0.5842751, 0.6755904, 0.8259104, ~
-## $ elo_prob2      &lt;dbl&gt; 0.2670503, 0.1379886, 0.4157249, 0.3244096, 0.1740896, ~
-## $ elo1_post      &lt;dbl&gt; 1662.199, 1663.449, 1388.883, 1397.249, 1598.815, 1538.~
-## $ elo2_post      &lt;dbl&gt; 1577.688, 1439.523, 1450.396, 1362.366, 1466.627, 1348.~
+## $ team1          &lt;chr&gt; &quot;BOS&quot;, &quot;GSW&quot;, &quot;DET&quot;, &quot;IND&quot;, &quot;ATL&quot;, &quot;MIA&quot;, &quot;BRK&quot;, &quot;TOR&quot;,~
+## $ team2          &lt;chr&gt; &quot;PHI&quot;, &quot;LAL&quot;, &quot;ORL&quot;, &quot;WAS&quot;, &quot;HOU&quot;, &quot;CHI&quot;, &quot;NOP&quot;, &quot;CLE&quot;,~
+## $ elo1_pre       &lt;dbl&gt; 1657.640, 1660.620, 1393.525, 1399.202, 1535.408, 1617.~
+## $ elo2_pre       &lt;dbl&gt; 1582.247, 1442.352, 1366.089, 1440.077, 1351.165, 1447.~
+## $ elo_prob1      &lt;dbl&gt; 0.7329497, 0.8620114, 0.6755904, 0.5842751, 0.8370220, ~
+## $ elo_prob2      &lt;dbl&gt; 0.2670503, 0.1379886, 0.3244096, 0.4157249, 0.1629780, ~
+## $ elo1_post      &lt;dbl&gt; 1662.199, 1663.449, 1397.249, 1388.883, 1538.164, 1598.~
+## $ elo2_post      &lt;dbl&gt; 1577.688, 1439.523, 1362.366, 1450.396, 1348.409, 1466.~
 ## $ carm.elo1_pre  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
 ## $ carm.elo2_pre  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
 ## $ carm.elo_prob1 &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
 ## $ carm.elo_prob2 &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
 ## $ carm.elo1_post &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
 ## $ carm.elo2_post &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ raptor1_pre    &lt;dbl&gt; 1693.243, 1615.718, 1462.353, 1308.970, 1649.036, 1618.~
-## $ raptor2_pre    &lt;dbl&gt; 1641.877, 1472.174, 1472.018, 1349.865, 1494.447, 1283.~
-## $ raptor_prob1   &lt;dbl&gt; 0.6706123, 0.7765022, 0.5995097, 0.5632696, 0.7920307, ~
-## $ raptor_prob2   &lt;dbl&gt; 0.32938773, 0.22349780, 0.40049033, 0.43673038, 0.20796~
-## $ score1         &lt;int&gt; 126, 123, 107, 113, 108, 117, 115, 108, 108, 115, 102, ~
-## $ score2         &lt;int&gt; 117, 109, 114, 109, 116, 107, 112, 130, 105, 108, 129, ~
-## $ quality        &lt;int&gt; 96, 67, 37, 3, 76, 24, 80, 80, 86, 34, 37, 79, 92, 42, ~
-## $ importance     &lt;int&gt; 13, 20, 28, 1, 19, 1, 25, 44, 40, 4, 34, 32, 19, 49, 28~
-## $ total_rating   &lt;int&gt; 55, 44, 33, 2, 48, 13, 53, 62, 63, 19, 36, 56, 56, 46, ~</code></pre>
+## $ raptor1_pre    &lt;dbl&gt; 1693.243, 1615.718, 1308.970, 1462.353, 1618.257, 1649.~
+## $ raptor2_pre    &lt;dbl&gt; 1641.877, 1472.174, 1349.865, 1472.018, 1283.328, 1494.~
+## $ raptor_prob1   &lt;dbl&gt; 0.6706123, 0.7765022, 0.5632696, 0.5995097, 0.9176509, ~
+## $ raptor_prob2   &lt;dbl&gt; 0.32938773, 0.22349780, 0.43673038, 0.40049033, 0.08234~
+## $ score1         &lt;int&gt; 126, 123, 113, 107, 117, 108, 108, 108, 115, 115, 102, ~
+## $ score2         &lt;int&gt; 117, 109, 109, 114, 107, 116, 130, 105, 112, 108, 129, ~
+## $ quality        &lt;int&gt; 96, 67, 3, 37, 24, 76, 80, 86, 80, 34, 37, 79, 92, 42, ~
+## $ importance     &lt;int&gt; 13, 20, 1, 28, 1, 19, 44, 40, 25, 4, 34, 32, 19, 49, 28~
+## $ total_rating   &lt;int&gt; 55, 44, 2, 33, 13, 48, 62, 63, 53, 19, 36, 56, 56, 46, ~</code></pre>
 <p>To limit the scope of the data, the following cell converts <code>df</code> to only include predictions for games in which the New York Knicks are playing:</p>
 <pre class="r"><code>dfSubset &lt;- dfRaw %&gt;%
   dplyr::filter(team1 == &#39;NYK&#39; | team2 == &#39;NYK&#39;)
@@ -235,8 +235,8 @@ dplyr::glimpse(df)</code></pre>
 ## $ opponent       &lt;chr&gt; &quot;MEM&quot;, &quot;DET&quot;, &quot;ORL&quot;, &quot;CHO&quot;, &quot;MIL&quot;, &quot;CLE&quot;, &quot;ATL&quot;, &quot;PHI&quot;,~
 ## $ win_percentage &lt;dbl&gt; 0.2567636, 0.7807578, 0.8241579, 0.6008730, 0.2777317, ~
 ## $ rating_pre     &lt;dbl&gt; 1520.387, 1517.886, 1524.826, 1528.374, 1532.596, 1527.~
-## $ quality        &lt;int&gt; 80, 21, 19, 36, 77, 63, 71, 72, 81, 58, 58, 21, 29, 69,~
-## $ importantance  &lt;int&gt; 25, 8, 7, 44, 35, 57, 54, 43, 36, 55, 72, 10, 13, 30, 1~</code></pre>
+## $ quality        &lt;int&gt; 80, 21, 19, 36, 77, 63, 71, 72, 81, 58, 58, 21, 33, 63,~
+## $ importantance  &lt;int&gt; 25, 8, 7, 44, 35, 57, 54, 43, 36, 55, 72, 10, 18, 36, 2~</code></pre>
 <p>The data in its final format only includes the following columns:</p>
 <ol style="list-style-type: decimal">
 <li><code>opponent</code> - Who the Knicks are playing against.</li>
@@ -267,25 +267,28 @@ df %&gt;%
   dplyr::select(-opponent) %&gt;%
     calc_means(.)</code></pre>
 <pre><code>##   win_percentage rating_pre  quality importantance
-## 1       0.493955   1504.543 62.09756      56.08537</code></pre>
+## 1      0.5033847   1511.403 61.15854      58.37805</code></pre>
 <p>The code above creates a function <code>calc_means</code> that calculates and reports the means of each column using a for loop. The results of this are shown above.</p>
 </div>
 <div id="the-purrr-way" class="section level2">
 <h2>The <code>purrr</code> way</h2>
 <p>Using the <code>purrr</code> package, running a function over every column in a dataframe becomes incredibly easy via use of the package’s <code>map</code> functions. There exists a different <code>map</code> function for the different R datatypes (i.e. for integers it becomes <code>map_int</code>), and each one returns a vector of the datatype specified. In this case, we will use <code>map_dbl</code> since calculating means of each column will return a vector of type <code>double</code> elements. This is done in the cell below:</p>
-<pre class="r"><code>purrr::map_dbl(df, mean)</code></pre>
-<pre><code>##       opponent win_percentage     rating_pre        quality  importantance 
-##             NA       0.493955    1504.542504      62.097561      56.085366</code></pre>
+<pre class="r"><code>dplyr::select(df, -opponent) %&gt;%
+  purrr::map_dbl(., mean)</code></pre>
+<pre><code>## win_percentage     rating_pre        quality  importantance 
+##      0.5033847   1511.4031878     61.1585366     58.3780488</code></pre>
 </div>
 <div id="the-benefit" class="section level2">
 <h2>The Benefit</h2>
 <p>As can be seen in the code above, finding and reporting the means of each numerical column only takes one line of code using the <code>purrr</code> package. The function we are passing over the columns is the <code>mean</code> function, and similar descriptive stats functions (such as <code>sd</code> and <code>median</code>, can be used in the same way):</p>
-<pre class="r"><code>purrr::map_dbl(df, stats::median)</code></pre>
-<pre><code>##       opponent win_percentage     rating_pre        quality  importantance 
-##             NA      0.5018429   1502.4441175     70.5000000     58.5000000</code></pre>
-<pre class="r"><code>purrr::map_dbl(df, stats::sd)</code></pre>
-<pre><code>##       opponent win_percentage     rating_pre        quality  importantance 
-##             NA       0.170928       6.540980      18.949973      23.634146</code></pre>
+<pre class="r"><code>dplyr::select(df, -opponent) %&gt;%
+  purrr::map_dbl(., stats::median)</code></pre>
+<pre><code>## win_percentage     rating_pre        quality  importantance 
+##      0.5368232   1511.0339677     69.0000000     62.0000000</code></pre>
+<pre class="r"><code>dplyr::select(df, -opponent) %&gt;%
+  purrr::map_dbl(., stats::sd)</code></pre>
+<pre><code>## win_percentage     rating_pre        quality  importantance 
+##      0.1694184      5.4950101     18.6007231     23.7152034</code></pre>
 <p>While calling the <code>calc_means</code> function we defined earlier now only requires one line since its code has been previously written, instantiating the <code>map_dbl</code> function turns out to have a faster runtime:</p>
 <pre class="r"><code>testDf = dplyr::select(df, -opponent)
 
@@ -295,8 +298,8 @@ microbenchmark::microbenchmark(
 )</code></pre>
 <pre><code>## Unit: microseconds
 ##     expr     min       lq      mean   median      uq     max neval
-##  c_style 194.873 199.7965 223.34900 208.4115 220.104 470.565   100
-##    purrr  40.616  45.1290  56.60851  54.3600  60.309 123.488   100</code></pre>
+##  c_style 184.205 195.6925 232.48421 200.6155 234.872 465.231   100
+##    purrr  41.026  44.3080  60.86992  54.7690  61.949 227.282   100</code></pre>
 <p>As can be seen in the output above, using the <code>purrr</code> map function saved about four times as much time when compared to using the user-defined <code>calc_means</code> function. In the R backend, all functions are vectorized which makes our code more concise, easier to read, less error prone, and alot less redundant.</p>
 </div>
 </div>

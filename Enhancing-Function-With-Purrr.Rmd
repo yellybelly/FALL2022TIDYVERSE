@@ -23,7 +23,7 @@ This document will attempt to show how to make more efficient certain functional
 
 The cell below loads the data from Github and transforms it into a R dataframe. 
 
-```{r}
+```{r data}
 csv_data <- RCurl::getURL("https://projects.fivethirtyeight.com/nba-model/nba_elo_latest.csv")
 dfRaw <- data.frame(read.csv(text=csv_data))
 dplyr::glimpse(dfRaw)
@@ -31,7 +31,7 @@ dplyr::glimpse(dfRaw)
 
 To limit the scope of the data, the following cell converts `df` to only include predictions for games in which the New York Knicks are playing:
 
-```{r}
+```{r subset}
 dfSubset <- dfRaw %>%
   dplyr::filter(team1 == 'NYK' | team2 == 'NYK')
 nrow(dfSubset)
@@ -39,7 +39,7 @@ nrow(dfSubset)
 
 We see now that the data has been limited to only the 82 regular season games that the Knicks will play. Next, the cell below takes the data cleaning one step further by transforming the dataframe to only include stats pertaining to Knicks (as opposed to their opponents): 
 
-```{r}
+```{r clean}
 df <- dfSubset %>%
   dplyr::transmute(
     opponent = ifelse(team1=='NYK', team2, team1),
@@ -67,7 +67,7 @@ This section will go through an example of how one might use R functions to answ
 
 The below code chunk shows how we might carry out this task, if we came from a traditional C background:
 
-```{r}
+```{r old}
 calc_means <- function(df_input) {
   means <- vector("double", length(df_input))
   for (i in seq_along(df_input)) {
@@ -90,8 +90,9 @@ The code above creates a function `calc_means` that calculates and reports the m
 
 Using the `purrr` package, running a function over every column in a dataframe becomes incredibly easy via use of the package's `map` functions. There exists a different `map` function for the different R datatypes (i.e. for integers it becomes `map_int`), and each one returns a vector of the datatype specified. In this case, we will use `map_dbl` since calculating means of each column will return a vector of type `double` elements. This is done in the cell below:
 
-```{r, warning=FALSE}
-purrr::map_dbl(df, mean)
+```{r new}
+dplyr::select(df, -opponent) %>%
+  purrr::map_dbl(., mean)
 ```
 
 
@@ -99,14 +100,16 @@ purrr::map_dbl(df, mean)
 
 As can be seen in the code above, finding and reporting the means of each numerical column only takes one line of code using the `purrr` package. The function we are passing over the columns is the `mean` function, and similar descriptive stats functions (such as `sd` and `median`, can be used in the same way):
 
-```{r,warning=FALSE}
-purrr::map_dbl(df, stats::median)
-purrr::map_dbl(df, stats::sd)
+```{r examples}
+dplyr::select(df, -opponent) %>%
+  purrr::map_dbl(., stats::median)
+dplyr::select(df, -opponent) %>%
+  purrr::map_dbl(., stats::sd)
 ```
 
 While calling the `calc_means` function we defined earlier now only requires one line since its code has been previously written, instantiating the `map_dbl` function turns out to have a faster runtime:
 
-```{r}
+```{r bench}
 testDf = dplyr::select(df, -opponent)
 
 microbenchmark::microbenchmark(

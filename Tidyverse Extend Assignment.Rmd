@@ -1,0 +1,109 @@
+---
+title: "TidyVerse_Extend_Assignment"
+author: "Gabriel Santos"
+date: '2022-11-11'
+output: html_document
+---
+Source: https://www.kaggle.com/ronitf/heart-disease-uci/data#heart.csv
+
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+heartdata <- read.csv('https://raw.githubusercontent.com/GabrielSantos33/DATA-607_Tidyverse_Extend/main/HeartDisease.csv')
+view(heartdata)
+head(heartdata)
+```
+
+
+```{r}
+filteredheart <- heartdata%>%
+  filter(Cholesterol > 200)
+head(filteredheart)
+```
+
+
+```{r}
+selectheart <- heartdata%>%
+  select(c('Age','MaxHR','HeartDisease'))
+head(selectheart)
+```
+
+
+```{r}
+bysex <- heartdata%>%
+  group_by(Sex)%>%
+  summarise(count = n())
+
+bysex
+```
+
+### *Part 2: Tidyverse Extend*
+
+dplyr:: select
+
+Q: How do i select from one column to another in a table
+
+A: By using the dplyr select function
+
+```{r}
+heartdata2 <- heartdata%>%
+  select(Age:Cholesterol,HeartDisease)
+head(heartdata2)
+```
+
+dplyr::rename
+
+Q: How do i rename a variable in a table?
+
+A: I use dplyr rename function
+
+```{r}
+heartdata2 <- heartdata2 %>% rename("Gender" = Sex)
+head(heartdata2)
+```
+
+dplyr::case_when()
+
+Q: How do i vectorise multiple if else statement
+
+A: By Using the case_when() function
+
+```{r}
+heartdata3 <- heartdata2 %>% 
+  mutate(Heart_condition = case_when(Cholesterol >= 300 ~ 'Severe'
+                                     ,TRUE ~ 'Not_severe' )
+         )
+head(heartdata3)
+```
+
+ggplot2::Barplot
+
+Q: I want to plot a Barchart of the count of Male and Female in the dataset
+
+A: Use the ggplot function and the geom_bar layer
+```{r}
+ggplot(data = heartdata2, aes(x = Gender)) + geom_bar(fill = "blue") + 
+  labs(title = "Bar chart for count of Sex") + theme_bw()
+```
+coord_flip()
+
+Q: How do I flip co-ordinates?
+
+A: Add the coord_flip layer
+
+```{r}
+ggplot(data = heartdata2, aes(x = Gender)) + geom_bar(fill = "blue") + 
+  labs(title = "Bar chart for count of Sex") + theme_bw() + coord_flip()
+```
+
+ggplot: Histogram
+```{r}
+# Histogram of Cholesterol level
+ggplot(heartdata2, aes(x = Cholesterol)) + geom_histogram(binwidth = 30, fill = "darkblue") + 
+  labs(title = "Distribution of Cholesterol level", subtitle = "Cholesterol level") + ylab(NULL)
+```
+
+

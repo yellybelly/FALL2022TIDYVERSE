@@ -1,0 +1,90 @@
+---
+title: "Stringr"
+author: "Anthony Arroyo"
+date: "2022-11-18"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r libs, include=FALSE}
+library(magrittr)
+library(stringr)
+```
+
+# Introduction 
+
+Tidyverse has eight core packages according to its documentation.
+These are the ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats packages.
+Today we will investigate the [`stringr`](https://stringr.tidyverse.org/) package in more detail.
+Stringr uses C libraries to manipulate string data and is built on stringi.
+
+```{r}
+data("HairEyeColor")
+dimnames(HairEyeColor)
+```
+
+# Detect Matches
+
+Stringr is able to detect patterns and count the number of occurrences.
+It can check the beginning and end as well in one of its wrappers.
+
+```{r detect}
+colnames(HairEyeColor)
+
+colnames(HairEyeColor) %>%
+  stringr::str_starts(., "B")
+
+colnames(HairEyeColor) %>%
+  stringr::str_count(., "e")
+```
+
+# Mutate Strings
+
+Stringr is able to change the value of a string based on a criteria.
+For example, it can do substitution or convert all letters into uppercase.
+
+```{r mutate}
+rownames(HairEyeColor)
+
+rownames(HairEyeColor) %>%
+  stringr::str_replace(., "Brown", "Brunette")
+
+rownames(HairEyeColor) %>%
+  stringr::str_to_upper(.)
+```
+
+# Subset Strings
+
+Stringr can produce subsets as well as substrings.
+If we have a vector, we can match a pattern and only select those elements.
+Also, we can take pieces of strings to reduce the length and abbreviate them.
+
+```{r subset}
+colnames(HairEyeColor)
+
+colnames(HairEyeColor) %>%
+  stringr::str_subset(., "B")
+
+colnames(HairEyeColor) %>%
+  stringr::str_sub(., 1, 2)
+```
+
+# Order and Sort
+
+Finally, and perhaps most useful of all, we can use stringr to sort strings.
+It will do any hexcode wrangling under the hood so that you don't have to.
+
+```{r sort}
+rownames(HairEyeColor)
+
+rownames(HairEyeColor) %>%
+  stringr::str_order(.)
+
+rownames(HairEyeColor) %>%
+  stringr::str_sort(.)
+
+rownames(HairEyeColor) %>%
+  stringr::str_sort(., decreasing = TRUE)
+```
+
